@@ -3,5 +3,5 @@ cc
 pr
 sssp
 sswp
-./shared/*.o
-./tigr/*.o
+shared/*.o
+tigr/*.o
