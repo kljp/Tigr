@@ -162,18 +162,21 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
 
-	
+
+	unsigned int tr_vert = 0;	
 	unsigned int tr_edges = 0;
 	for(int i = 0; i < num_nodes; i++){
 
 		if(dist[i] != DIST_INFINITY){
 
+			tr_vert++;
 			tr_edges += vGraph.outDegree[i]; 
 		}
 	}
 	double t_elpd = runtime / 1000.0;
 	double gteps = (double) (tr_edges / t_elpd) / 1000000000;
 	cout << "Consumed time (s): " << t_elpd << endl;
+	cout << "Traversed vertices: " << tr_vert << endl;
 	cout << "Traversed edges: " << tr_edges << endl;
 	cout << "GTEPS: " << gteps << endl;
 
