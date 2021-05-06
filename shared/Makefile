@@ -3,8 +3,6 @@
 CC=g++
 NC=nvcc
 CFLAGS=-std=c++11 -O3
-NFLAGS=-arch=sm_32
-
 
 all: graph.o virtual_graph.o argument_parsing.o timer.o tigr_utilities.o
 
